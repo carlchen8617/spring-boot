@@ -1,8 +1,11 @@
-![Screenshot 2024-07-20 at 10 49 14 AM](https://github.aus.thenational.com/storage/user/7190/files/f84469c9-87b5-4e9f-9a55-45286e1c6720)
+
+<img width="1356" height="754" alt="Screenshot 2025-10-03 at 6 15 37 pm" src="https://github.com/user-attachments/assets/38ce41c5-5a7a-41f6-a9d7-a2009c56dd96" />
 
 == Learn What You Can Do with Spring Boot
 
-This is taken from https://spring.io/guides/gs/spring-boot/#scratch
+- a java 17 container that runs spring boot applications
+- a oxasia openldap container that provide login authentication
+- a postgres container that provides data storage via host filesystem
 
 But made changes to build.gradle 
 ----
@@ -84,6 +87,9 @@ http://localhost/management
   
 ---
 http://localhost/images?jpg=3  
+
+--
+http://localhost/db/dbget
   
 ldap related
 ---
