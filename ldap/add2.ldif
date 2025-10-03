@@ -1,0 +1,24 @@
+dn: ou=devs,dc=ccnab,dc=com
+objectClass: organizationalUnit
+ou: devs
+
+dn: uid=p780309d,ou=devs,dc=ccnab,dc=com
+uid: p780309d
+cn: p780309d
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+loginShell: /bin/bash
+uidNumber: 5036
+gidNumber: 3002
+homeDirectory: /mnt/blumeta0/home/p780309d
+gecos: test_ldap
+userPassword: 123456
+
+dn: cn=dev-team,dc=ccnab,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: dev-team
+description: App Development Team
+member: cn=p780309d,ou=devs,dc=ccnab,dc=com
+

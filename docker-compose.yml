@@ -1,0 +1,49 @@
+version: "3"
+services:
+  mvn:
+    image: openjdk:17
+    ports:
+     - "80:8080" 
+    command: bash -c  "cd /opt/code/initial && ./gradlew bootRun"
+    volumes:
+     - /Users/carlchen/mycode/gs-spring-boot:/opt/code
+#mysql:
+#    image: 9708bdae8a35
+#    restart: always
+#    tty: true
+#    ports:
+#      - 3306:3306
+#    volumes:
+#      - /Users/p780309/ndc/spring-boot/gs-spring-boot/db/:/var/lib/postgres/data
+#    environment:
+#      - 'MYSQL_DATABASE=springboot'
+#      - 'MYSQL_PASSWORD=letmein'
+#      - 'MYSQL_ROOT_PASSWORD=letmein'
+#      - 'MYSQL_USER=carlchen'
+  postgressql:
+    # docker-hub-filtered.artifactory.ext.national.com.au/ubuntu/postgres
+    image: postgres:16
+    restart: always
+    tty: true
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    environment:
+      - 'POSTGRES_DB=springboot'
+      - 'POSTGRES_PASSWORD=letmein'
+      - 'POSTGRES_USER=carlchen'
+  ldap:
+    image: my:ldapd
+    environment:
+      LDAP_ORGANISATION: "carlchen"
+      LDAP_DOMAIN: "ccnab.com"
+      LDAP_BASE_DN: "dc=ccnab,dc=com"
+      LDAP_ADMIN_PASSWORD: "1234"
+      LDAP_READONLY_USER_USERNAME: "*" 
+    ports:
+     - "389:389" 
+     - "636:636"
+    volumes:
+     - ./ldap:/opt/code
+    

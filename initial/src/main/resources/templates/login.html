@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Carl Chen's Spring Boot page</title>
+    <link rel="stylesheet"  href="../static/css/main.css" th:href="@{/css/main.css}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login-page">
+    <div class="form">
+
+        <form class="login-form" th:action="@{/login}" method="post">
+            <input type="text" placeholder="username" name="username"/>
+            <input type="password" placeholder="password" name="password"/>
+            <div><input type="submit" value="Sign In"/></div>
+            <p class="message">@ NAB 2024 <a href="#"></a></p>
+        </form>
+    </div>
+</div>
+
+<!-- partial -->
+
+</body>
+</html>

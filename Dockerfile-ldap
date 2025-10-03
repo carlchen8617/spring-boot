@@ -1,0 +1,3 @@
+FROM docker-hub.artifactory.aus.thenational.com/osixia/openldap
+COPY ldap /opt/code
+

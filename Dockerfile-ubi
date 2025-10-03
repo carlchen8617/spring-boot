@@ -1,0 +1,4 @@
+FROM cd.artifactory.aus.thenational.com/rhel:ubi9-minimal
+
+RUN microdnf install -y java-17-openjdk-devel \
+ && microdnf clean all

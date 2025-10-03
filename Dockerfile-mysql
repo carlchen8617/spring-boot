@@ -1,0 +1,4 @@
+FROM cd.artifactory.aus.thenational.com/rhel:ubi9-minimal
+
+RUN microdnf install -y mysql-server \
+ && microdnf clean all

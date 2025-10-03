@@ -1,0 +1,15 @@
+version: "3"
+services:
+  ldap:
+    image: my-new-ldap
+    environment:
+      LDAP_ORGANISATION: "carlchen"
+      LDAP_DOMAIN: "ccnab.com"
+      LDAP_BASE_DN: "dc=ccnab,dc=com"
+      LDAP_ADMIN_PASSWORD: "1234"
+      LDAP_READONLY_USER_USERNAME: "*" 
+    ports:
+     - "389:389" 
+     - "636:636"
+    volumes:
+     - /Users/P780309/ndc/spring-boot/gs-spring-boot/ldap:/opt/code

@@ -1,0 +1,104 @@
+buildscript {
+    ext {
+     springBootVersion = '3.5.5'
+   }
+   repositories {
+       mavenCentral()
+       google()
+       gradlePluginPortal()
+    }
+    
+            
+
+   dependencies {
+          classpath(
+            "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}",
+            //"org.springframework.security:spring-security-web:6.4.0"
+          )
+
+      }   
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'java'
+
+
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+/***
+def maven_repo_props = new Properties()
+
+ext.set('gradle_plugins', artifactory_url + maven_repo_props.gradle_plugins)
+ext.set('gradle_plugins_two', artifactory_url + maven_repo_props.gradle_plugins_two)
+ext.set('quantexa_explorer_releases', artifactory_url + maven_repo_props.quantexa_explorer_releases)
+ext.set('maven_central', artifactory_url + maven_repo_props.maven_central)
+ext.set('maven_confluent', artifactory_url + maven_repo_props.maven_confluent)
+ext.set('spring_milestones', artifactory_url + maven_repo_props.spring_milestones)
+ext.set('jcenter', artifactory_url + maven_repo_props.jcenter)
+ext.set('elastic_co', artifactory_url + maven_repo_props.elastic_co)
+ext.set('atlassian', artifactory_url + maven_repo_props.atlassian)
+
+repositories {
+    maven { url maven_central }
+    maven { url maven_confluent }
+    maven { url gradle_plugins }
+    maven { url gradle_plugins_two }
+    maven { url spring_milestones }
+    maven { url elastic_co }
+    maven { url atlassian }
+    maven { url jcenter }
+    maven {
+        url quantexa_explorer_releases
+        credentials(HttpHeaderCredentials) {
+            name = "X-JFrog-Art-Api"
+            value = artifactoryToken
+        }
+        authentication {
+            header(HttpHeaderAuthentication)
+        }
+    }
+    mavenLocal()
+}
+***/
+
+repositories {
+    mavenCentral()
+    google()
+    gradlePluginPortal()
+}
+
+dependencies {
+     // tag::actuator[]
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	// end::actuator[]
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.2.RELEASE'
+    implementation "org.springframework.boot:spring-boot-starter-data-ldap"
+    implementation "org.springframework.ldap:spring-ldap-core"
+    implementation "org.springframework.security:spring-security-ldap"
+    //implementation 'jakarta.persistence:jakarta.persistence-api:3.0.0'
+    implementation 'org.postgresql:postgresql:42.7.4'
+    // implementation 'com.google.cloud.sql:mysql-socket-factory-connector-j-8:1.21.0'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation "com.unboundid:unboundid-ldapsdk"
+    implementation "commons-io:commons-io:2.6"
+    // https://mvnrepository.com/artifact/org.apache.tika/tika-core
+    implementation 'org.apache.tika:tika-core:2.9.2'
+    implementation 'org.apache.tika:tika-parsers:2.9.2'
+    implementation 'net.sourceforge.tess4j:tess4j:5.9.0'
+	// tag::tests[]
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	// end::tests[]
+	//implementation 'org.springframework.boot:spring-boot-starter-web'
+	//#testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+

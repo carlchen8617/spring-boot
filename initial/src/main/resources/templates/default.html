@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>home page</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/css/main.css" th:href="@{/css/main.css}" />
+</head>
+<body>
+<div>
+    <a href="http://localhost/images?jpg=3">鸟</a>
+</div>
+<div>
+<a href="http://localhost/images?jpg=2">鸟2</a>
+</div>
+<div>
+<a href="http://localhost/images?jpg=1">鸟3</a>
+</div>
+
+<div>
+
+        <form action="dbadd" th:object="${mysqlUser}" method="post" modelAttribute="dbadd">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+            <input type="text" th:field="*name" placeholder="name" name="name"/>
+            <input type="text" th:field="*email" placeholder="email" name="email"/>
+            <div><input type="submit" value="ok"/></div>
+        </form>
+    </div>
+</body>
+</html>

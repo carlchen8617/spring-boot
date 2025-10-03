@@ -1,0 +1,11 @@
+FROM docker-hub-filtered.artifactory.ext.national.com.au/ubuntu/postgres
+
+# Define build arguments for UID and GID with default values
+ARG POSTGRES_UID=502
+ARG POSTGRES_GID=20
+
+# Modify the existing postgres user and group
+RUN usermod -u "${POSTGRES_UID}" -g "${POSTGRES_GID}" postgres
+
+# Set the user to postgres for subsequent commands
+USER postgres

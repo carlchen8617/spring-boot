@@ -1,0 +1,17 @@
+dn: uid=p780309,ou=devs,dc=ccnab,dc=com
+uid: p780309
+cn: p780309
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+loginShell: /bin/bash
+uidNumber: 5036
+gidNumber: 3002
+homeDirectory: /mnt/blumeta0/home/test_ldap
+gecos: test_ldap
+
+dn: cn=bluusers,ou=groups,dc=ccnab,dc=com
+changetype: modify
+add: memberuid
+memberuid: p780309
+memberuid: uid=p780309,ou=users,dc=ccnab,dc=com

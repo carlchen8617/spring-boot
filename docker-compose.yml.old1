@@ -1,0 +1,14 @@
+version: "3"
+services:
+  postgres:    
+    image: postgres:16
+    restart: always
+    tty: true
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    environment:
+      - 'POSTGRES_DB=springboot'
+      - 'POSTGRES_PASSWORD=letmein'
+      - 'POSTGRES_USER=carlchen'
